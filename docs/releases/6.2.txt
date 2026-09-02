@@ -218,6 +218,11 @@ Signals
 
 * ...
 
+Shortcuts
+~~~~~~~~~
+
+* The new :func:`~django.shortcuts.make_toast` function makes toast.
+
 Tasks
 ~~~~~
 

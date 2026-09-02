@@ -1,6 +1,6 @@
 from django.core.exceptions import DisallowedRedirect
 from django.http.response import HttpResponseRedirectBase
-from django.shortcuts import redirect
+from django.shortcuts import make_toast, redirect
 from django.test import SimpleTestCase, override_settings
 from django.test.utils import require_jinja2
 from django.utils.http import MAX_URL_REDIRECT_LENGTH
@@ -74,3 +74,8 @@ class RedirectTests(SimpleTestCase):
         msg = "Unsafe redirect exceeding 5 characters"
         with self.assertRaisesMessage(DisallowedRedirect, msg):
             redirect("https://example.com/", max_length=5)
+
+
+class MakeToastTests(SimpleTestCase):
+    def test_make_toast(self):
+        self.assertEqual(make_toast(), "toast")
